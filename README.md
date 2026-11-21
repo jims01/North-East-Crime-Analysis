@@ -2,7 +2,7 @@
 
 Which areas of the North East have the highest levels of crime? This project combines police.uk street-level crime data with Census 2021 population figures to compare crime **rates** (not just counts) across the region's 12 local authorities, and presents the results in a Power BI dashboard.
 
-![Dashboard](images/dashboard.png)
+![Dashboard](dashboard.png)
 
 ## Key findings
 - **Highest rate:** Middlesbrough (172.8 crimes per 1,000 residents), followed by Hartlepool (149.2) and Stockton-on-Tees (132.7). **Lowest:** Northumberland (60.7), followed by North Tyneside (73.5) and Gateshead (77.3).
