@@ -5,8 +5,9 @@ Which areas of the North East have the highest levels of crime? This project com
 ![Dashboard](dashboard.png)
 
 ## Key findings
-- **Highest rate:** Middlesbrough (172.8 crimes per 1,000 residents), followed by Hartlepool (149.2) and Stockton-on-Tees (132.7). **Lowest:** Northumberland (60.7), followed by North Tyneside (73.5) and Gateshead (77.3).
-- **The four highest-rate authorities are all in the Tees Valley** (Middlesbrough, Hartlepool, Stockton-on-Tees, Redcar and Cleveland), all covered by Cleveland Police.
+- **Highest rate:** Middlesbrough (172.8 crimes per 1,000 residents, Oct 2025–Sep 2026), followed by Hartlepool (149.2) and Stockton-on-Tees (132.7). 
+- **Lowest:** Northumberland (60.7), followed by North Tyneside (73.5) and Gateshead (77.3). Rates for the six Northumbria Police authorities may be understated because of the Jan–Feb 2026 data gap (see limitations). 
+- **The four highest-rate authorities are all in the Tees Valley** (Middlesbrough, Hartlepool, Stockton-on-Tees, Redcar and Cleveland), the Cleveland Police area. Part of the gap with the Northumbria Police area may reflect that data gap.
 - **Year-on-year change, Oct–Dec 2025 vs Oct–Dec 2024 (excluding ASB):** the largest increases were in Stockton-on-Tees (+11.1%), Redcar and Cleveland (+8.9%), Hartlepool (+6.8%) and Middlesbrough (+6.0%). Crime fell in Sunderland (−0.6%), Newcastle upon Tyne (−2.8%) and South Tyneside (−3.3%).
 - Across the 12 authorities the overall rate is **98.2 crimes per 1,000 residents** (October 2025 to September 2026, all crime types except anti-social behaviour).
 
@@ -26,9 +27,9 @@ SQL Server, Python (pandas), Power BI (DAX)
 2. **Clean:**
    - Dropped Longitude, Latitude and Context, which weren't needed for an area-level comparison
    - Converted `Month` to a proper date type in pandas
-   - Found **16 duplicate Crime IDs** and built a deduplicated view (`vw_crime_clean`) that keeps the first-loaded copy, leaving the raw data untouched (684,645 unique crimes)
+   - Found 16 duplicate Crime IDs and built a deduplicated view (vw_crime_clean, see `vw_crime_clean.sql`) that keeps the first-loaded copy, leaving the raw data untouched (684,645 unique crimes)
 3. **Link to population:** extracted the local authority from each LSOA name, loaded Census population into `population_staging`, and joined the two.
-4. **Model:** built reporting views, `vw_crime_monthly` (4,190 rows) and `vw_population_la`, and loaded them into Power BI with a one-to-many relationship.
+4. **Model:** built reporting views, vw_crime_monthly (4,190 rows) and vw_population_la (see `vw_crime_monthly.sql` and `vw_population_la.sql`), and loaded them into Power BI with a one-to-many relationship..
 5. **Measure:** wrote DAX measures for crimes per 1,000 residents and year-on-year % change, then checked them against the SQL results. They matched, with and without ASB.
 
 ## Decisions and limitations
