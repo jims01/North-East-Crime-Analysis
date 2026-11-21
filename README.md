@@ -38,13 +38,6 @@ SQL Server, Python (pandas), Power BI (DAX)
 - **Rates use resident population,** so areas with large visitor or night-time populations, such as city centres, may look higher than their residents' experience of crime.
 - **Short comparison window:** a three-month year-on-year change is sensitive to seasonal and recording differences, so treat it as indicative, not a trend.
 
-## Repository structure
-```
-sql/        # table creation, cleaning, and views
-python/     # pandas scripts (date conversion, loading)
-powerbi/    # .pbix file and DAX measures
-images/     # dashboard screenshot
-```
 <!-- adjust to match your repo -->
 
 ## Possible extensions
